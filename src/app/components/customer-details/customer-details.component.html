@@ -1,0 +1,39 @@
+<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon"></app-page-header>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="col-md-4 mb-3">
+            <label for="">First Name</label>
+                <input type="text" value="{{customer?.firstName}}" disabled class="form-control"  >
+        </div>
+
+        <div class="col-md-4 mb-3">
+                <label for="">Last Name</label>
+                    <input type="text" value="{{customer?.lastName}}" disabled class="form-control"  >
+        </div>
+
+        <div class="col-md-4 mb-3">
+                    <label for="">Email</label>
+                        <input type="text" value="{{customer?.email}}" disabled class="form-control"  >
+        </div>
+
+        <div class="col-md-4 mb-3">
+                        <label for="">Phone</label>
+                            <input type="text" value="{{customer?.phone}}" disabled class="form-control"  >
+        </div>
+        <div class="col-md-4 mb-3">
+                <label for="">address</label>
+                    <input type="text" value="{{customer?.address}}" disabled class="form-control"  >
+        </div>
+        <div class="col-md-4 mb-3">
+                <label for="">Notes</label>
+                    <input type="text" value="{{customer?.notes}}" cols="30" rows="10"  >
+        </div>
+    </div>
+
+    <div class="fixed-bottom bg-light p-3 text-center">
+        <a routerLink="/customers"  class="btn btn-secondary"> BACK </a>
+    </div>
+
+</div>

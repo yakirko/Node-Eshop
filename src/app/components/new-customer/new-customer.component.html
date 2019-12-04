@@ -1,0 +1,73 @@
+<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon"></app-page-header>
+
+<form  #customerForm="ngForm"  (ngSubmit)="onSubmit(customerForm)"  novalidate="novalidate"  autocomplete="off"         >
+        <div class="form-group">
+          <label for="FirstNameInput">First Name  <span class="text-danger">*</span></label>
+          <input required
+            type="text" 
+            class="form-control"
+             id="FirstNameInput" 
+              name="firstName" 
+                #fnf="ngModel"
+                 ngModel  
+                 minlength="2"
+                 
+                 [ngClass]="{'is-invalid':fnf.errors && fnf.touched }"
+                 >
+                <div [hidden]="!fnf.errors?.required" class="invalid-feedback" >
+                     First Name Is Required.
+                </div>
+                <div [hidden]="!fnf.errors?.minlength" class="invalid-feedback" >
+                        First Name Is minimum 2 chars.
+                </div>
+
+
+        </div>
+        <div class="form-group">
+                <label for="LastNameInput">Last Name  <span class="text-danger">*</span></label>
+                <input required minlength="2" type="text" class="form-control" id="LastNameInput"  name="lastName"   #lnf="ngModel" ngModel
+                [ngClass]="{'is-invalid':lnf.errors && lnf.touched }" >
+
+                <div [hidden]="!lnf.errors?.required" class="invalid-feedback" >
+                        Last Name Is Required.
+                </div>
+                <div [hidden]="!lnf.errors?.minlength" class="invalid-feedback" >
+                        Last Name Is minimum 2 chars.
+                </div>
+
+        </div>
+        <div class="form-group">
+                <label for="EmailAdressInput">Email  <span class="text-danger">*</span></label>
+                <input  required  type="email" class="form-control" id="EmailAdressInput"   name="email"   #ef="ngModel"
+                [ngClass]="{'is-invalid':ef.errors && ef.touched }" email ngModel>
+
+                <div [hidden]="!ef.errors?.required" class="invalid-feedback" >
+                        Email Is Required.
+                </div>
+                <div [hidden]="!ef.errors?.email" class="invalid-feedback" >
+                        Email Is Not Valid.
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="PhoneInput">Phone  <span class="text-danger">*</span></label>
+                <input  required  type="text" class="form-control" id="PhoneInput"   name="phone"   #pf="ngModel"
+                [ngClass]="{'is-invalid':pf.errors && pf.touched }"  pattern="^0[2-9]\d{7,8}$" ngModel>
+
+                <div [hidden]="!pf.errors?.required" class="invalid-feedback" >
+                        Phone Is Required.
+                </div>
+                <div [hidden]="!pf.errors?.pattern" class="invalid-feedback" >
+                        Phone Is Not Valid.
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="AdressInput">Address  <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="AdressInput"   name="address"   #af="ngModel" ngModel>
+        </div>
+        <div class="form-group">
+                <label for="NotesInput">Notes  <span class="text-danger">*</span></label>
+                <textarea  cols="30"  rows="10" type="text" class="form-control" id="NotesInput" name="notes" #nf="ngModel" ngModel> </textarea>
+        </div>
+
+        <button type="submit"   [disabled]="!customerForm.form.valid"  class="w-20 btn btn-primary">Submit</button>
+      </form>

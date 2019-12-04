@@ -1,0 +1,93 @@
+<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon"></app-page-header>
+
+<div class="row">
+
+<div class="col-3">
+<label for=""> First Name  </label>
+<div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-search"></i>
+          </span>
+        </div>
+        <input (keyup)="onsearch( 'firstName' )" [(ngModel)]="firstName" type="text" class="form-control" placeholder="First Name ">
+      </div>
+</div>
+
+<div class="col-3">
+        <label for=""> Last Name  </label>
+        <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                        <i class="fas fa-search"></i>
+                  </span>
+                </div>
+                <input  (keyup)="onsearch( 'lastName' )" [(ngModel)]="lastName" type="text"  class="form-control" placeholder="Last Name ">
+              </div>
+        </div>
+
+        <div class="col-3">
+                <label for=""> Phone  </label>
+                <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                                <i class="fas fa-search"></i>
+                          </span>
+                        </div>
+                        <input type="text" (keyup)="onsearch( 'phone' )" [(ngModel)]="phone" class="form-control" placeholder="Phone">
+                      </div>
+                </div>
+
+    <div class="col-3">
+        <span class="float-right">
+            <a routerLink="/customers/new" class="btn btn-primary">
+                <i class="fas fa-plus-circle"></i>
+                Add Customer
+            </a>
+        </span>
+    </div>
+</div>
+
+<div class="row  mt-5" >
+    <div class="col-12">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+             <tr (mouseenter)="showOnHover($event)"  (mouserleave)="hideOnHover($event)"  *ngFor="let customer of customers; index as i">
+                 <th scope="row" class=" customer-row">
+                    {{i+1}}
+                    <span class="ml-3 invisible">
+                            <a class="text-secondary" routerLink="/customer/{{customer.id}}">
+                                    <i class="fas fa-eye"></i>
+                            </a>
+                            <a class="text-secondary ml-3 invisible" routerLink="/customer/{{customer.id}}/edit">
+                                    <i class="fas fa-pen"></i>
+                            </a> 
+                            <a (click)="onDeleteCustomer(customer.id)" class="text-secondary ml-3">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                    </span>
+
+                 </th>
+                 <td>{{customer.firstName}}</td>
+                 <td>{{customer.lastName}}</td>
+                 <td>{{customer.email}}</td>
+                 <td>{{customer.address}}</td>
+                 <td>{{customer.phone}}</td>
+                 <td>{{customer.notes}}</td>
+             </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

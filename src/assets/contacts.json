@@ -1,0 +1,31 @@
+[
+    {
+      "name": "moshe-levi",
+      "avatar":"moshe-levi.png",
+      "email": "mosh@gmail.com",
+      "birthday": "12-3-1985  00:00:00",
+      "phones":[
+        "123456789",
+        "123456782",
+        "123456783"
+      ]
+    },
+    {
+      "name": "avi cohen",
+      "avatar":"avi-cohen.png",
+      "email": "awi@gmail.com",
+      "birthday": "3-12-1999  00:00:00" ,
+      "phones":[
+        "123456789",
+        "123456782",
+        "123456783"
+      ]
+    },
+    {
+      "name": "dor alon",
+      "avatar":"dor-alon.jpg",
+      "email": "dordor@gmail.com",
+      "birthday": "1-11-1911  00:00:00"
+    }
+
+  ]

@@ -1,0 +1,42 @@
+<nav  *ngIf="isLogged" class="navbar navbar-expand-lg navbar-danger bg-light">
+    <a class="navbar-brand bg-success" href="/">CRM
+      <i class="fas fa-angle-double-up"></i>
+      company
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <span class="badge badge-primary center">3 New Leads</span>
+        <span class="badge badge-secondary center">1 Metting today</span>
+        <span class="badge badge-success center">10 open issues</span>
+      </li>
+    </ul>
+
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+            <a class="nav-link" href="#">{{userEmail}}</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+
+          </div>
+        </li>
+        <li class="nav-item">
+            <a (click)="onLoggedOut()"  class="nav-link" href="#">logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
